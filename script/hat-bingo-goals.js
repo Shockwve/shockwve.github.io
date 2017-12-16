@@ -85,9 +85,9 @@ bingoList[17] = [
   { name: "The Moon Rift", types: ["rift"] },
 ];
 bingoList[18] = [
-  { name: "Get Scooter", types: [""] },
   { name: "Make the Conductor win the award", types: ["botb"] },
   { name: "Make DJ Grooves win the award", types: ["botb"] },
+  { name: "Alpine Skyline Pink Rift", types: ["botb"] },
 ];
 bingoList[19] = [
   { name: "1000 points in Battle of the Birds Feud", types: ["botb"] },
