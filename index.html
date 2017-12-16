@@ -1,7 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html><head>
+    <title>SpeedRunsLive - Tools - Super Metroid Bingo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Main stylesheet -->
+<link rel="stylesheet" href="css/srlstyle.css" type="text/css">
+<!-- Main scripts -->
+<script src="script/ga.js" async="" type="text/javascript"></script>
+<script type="text/javascript" src="script/jquery.js"></script>
+<script type="text/javascript" src="script/trClicker.js"></script>
+<script type="text/javascript">
+    var srl = {}; // javascript holder
+
+    function NewCard() {
+        window.location = "?seed=" + (Math.floor(Math.random() * 999999) + 1)
+    }
+    function NewShortCard() {
+        window.location = "?seed=" + (Math.floor(Math.random() * 999999) + 1) + "&mode=short"
+    }
+    function NewLongCard() {
+        window.location = "?seed=" + (Math.floor(Math.random() * 999999) + 1) + "&mode=long"
+    }
+</script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div id="wrapper">
+        <div id="user">
+            <span class="note2">
+                <!--Registration is currently disabled.-->
+            </span>
+        </div>
+        <script src="script/seedrandom-min.js" type="text/javascript"></script>
+        <script src="script/bingo-v4.js" type="text/javascript"></script>
+        <script src="script/test-bingo.js" type="text/javascript"></script>
+        <div id="about_bingo">
+            <h2>
+                Generate a new card</h2>
+            <p>
+                <span class="note2">This bingo card is for testing purposes only.</span></p>
+            <p style="margin-top: 20px;" id="sortButtons">
+                <a class="sortButton" href="javascript:NewCard();">New card</a>
+                <a class="sortButton" href="javascript:NewShortCard();">Short card</a>
+                <a class="sortButton" href="javascript:NewLongCard();">Long card</a></p>            
+            </p>
+            <h2 style="margin-top: 10px; padding-top: 0px">
+                About This Test Bingo Card</h2>
+            <p>
+                The seed number is used to generate the board. Changing the seed will make a new
+                board.</p>
+            <hr></hr>
+                <p>
+                    Selfies explanation below:</p>
+                <ul>
+                    <li>Rumbi Selfie</li>
+                </ul>
+            <hr></hr>
+            <p>
+                <span class="note2">Bingo board by Shockwve/Fivves/sonicyellow/Polsaar.
+                    Based on SRL Bingo v4 by Cosmo.</span></p>
+
+        </div>
+        <div id="results">
+            <table id="bingo" cellspacing="4" cellpadding="7">
+                <tr>
+                    <td id="slot1">
+                    </td>
+                    <td id="slot2">
+                    </td>
+                    <td id="slot3">
+                    </td>
+                    <td id="slot4">
+                    </td>
+                    <td id="slot5">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="slot6">
+                    </td>
+                    <td id="slot7">
+                    </td>
+                    <td id="slot8">
+                    </td>
+                    <td id="slot9">
+                    </td>
+                    <td id="slot10">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="slot11">
+                    </td>
+                    <td id="slot12">
+                    </td>
+                    <td id="slot13">
+                    </td>
+                    <td id="slot14">
+                    </td>
+                    <td id="slot15">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="slot16">
+                    </td>
+                    <td id="slot17">
+                    </td>
+                    <td id="slot18">
+                    </td>
+                    <td id="slot19">
+                    </td>
+                    <td id="slot20">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="slot21">
+                    </td>
+                    <td id="slot22">
+                    </td>
+                    <td id="slot23">
+                    </td>
+                    <td id="slot24">
+                    </td>
+                    <td id="slot25">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
