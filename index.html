@@ -2,7 +2,7 @@
 <html><head>
     <title>Hat in Time - Speedrun Bingo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <!-- Main stylesheet -->
 <link rel="stylesheet" href="css/srlstyle.css" type="text/css">
 <!-- Main scripts -->
@@ -13,13 +13,16 @@
     var srl = {}; // javascript holder
 
     function NewCard() {
-        window.location = "?seed=" + (Math.floor(Math.random() * 999999) + 1)
+      var num = (Math.floor(Math.random() * 999999) + 1);
+        window.location = "?seed=" + num;
     }
     function NewShortCard() {
-        window.location = "?seed=" + (Math.floor(Math.random() * 999999) + 1) + "&mode=short"
+      var num = (Math.floor(Math.random() * 999999) + 1);
+        window.location = "?seed=" + num + "&mode=short";
     }
     function NewLongCard() {
-        window.location = "?seed=" + (Math.floor(Math.random() * 999999) + 1) + "&mode=long"
+      var num = (Math.floor(Math.random() * 999999) + 1);
+        window.location = "?seed=" + num + "&mode=long";
     }
 </script>
 </head>
@@ -41,7 +44,7 @@
             <p style="margin-top: 20px;" id="sortButtons">
                 <a class="sortButton" href="javascript:NewCard();">New card</a>
                 <a class="sortButton" href="javascript:NewShortCard();">Short card</a>
-                <a class="sortButton" href="javascript:NewLongCard();">Long card</a></p>            
+                <a class="sortButton" href="javascript:NewLongCard();">Long card</a></p>
             </p>
             <h2 style="margin-top: 10px; padding-top: 0px">
                 About This Test Bingo Card</h2>
