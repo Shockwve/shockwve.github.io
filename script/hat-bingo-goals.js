@@ -97,7 +97,7 @@ bingoList[19] = [
 bingoList[20] = [
   { name: "Get the chest at Purrloined Village", types: ["alpine"] },
   { name: "Blow the horn in Mystifying Time Mesa", types: ["alpine"] },
-  { name: "Selfie riding the Windmill in Alpine", types: ["alpine"] },
+  { name: "Windmill Selfie", types: ["alpine, selfie"] },
 ];
 bingoList[21] = [
   { name: "Craft Time Stop Hat", types: ["hat"] },
@@ -107,7 +107,7 @@ bingoList[21] = [
 bingoList[22] = [
  { name: "Green Screen Selfie in DBS Basement", types: ["selfie"] },
  { name: "Get the chest at the Goat Refinery", types: ["alpine"] },
- { name: "Selfie with a goat", types: ["selfie"] },
+ { name: "Goat Selfie", types: ["selfie"] },
 ];
 bingoList[23] = [
   { name: "1 Rift from each Chapter", types: ["rift, tp"] },
@@ -122,7 +122,6 @@ bingoList[24] = [
 bingoList[25] = [
   { name: "Curly Tail Trail Rift", types: ["tp"] },
   { name: "Complete 1 act from Alpine Skyline", types: ["rift"] },
-  { name: "Selfie riding the Windmill in Alpine", types: ["alpine"] },
 ];
 
 $(function() { srl.bingo(bingoList, 5); });
