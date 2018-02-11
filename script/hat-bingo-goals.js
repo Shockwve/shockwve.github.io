@@ -110,7 +110,7 @@ bingoList[22] = [
  { name: "Selfie with a goat", types: ["selfie"] },
 ];
 bingoList[23] = [
-  {{ name: "1 Rift from each Chapter", types: ["rift, tp"] },
+  { name: "1 Rift from each Chapter", types: ["rift, tp"] },
   { name: "Get all the photo album pieces from Alpine Skyline Rift", types: ["rift"] },
   { name: "Get the chest at Purrloined Village", types: ["alpine"] },
 ];
