@@ -80,20 +80,19 @@ bingoList[16] = [
   { name: "Kill the Toilet of Doom", types: ["boss"] },
 ];
 bingoList[17] = [
-  { name: "Repair all Relics", types: ["selfie"] },
   { name: "Vanessa Selfie", types: ["selfie"] },
   { name: "The Moon Rift", types: ["rift"] },
+  { name: "Create a relic in The Lab", types: [""] },
 ];
 bingoList[18] = [
-  { name: "Make the Conductor win the award", types: ["botb"] },
-  { name: "Make DJ Grooves win the award", types: ["botb"] },
-  { name: "Alpine Skyline Pink Rift", types: ["botb"] },
+  { name: "Get Scooter", types: [""] },
+  { name: "Repair all Relics", types: [""] },
+  { name: "1000 points in Battle of the Birds Feud", types: ["botb"] },
 ];
 bingoList[19] = [
-  { name: "1000 points in Battle of the Birds Feud", types: ["botb"] },
-  { name: "Collect 15 Time Pieces", types: ["tp"] },
-  { name: "Get the chest at the Goat Refinery", types: ["alpine"] },
-  { name: "Curly Tail Trail Rift", types: ["rift"]}
+ { name: "Get all time pieces from Mafia Town", types: ["tp"] },
+ { name: "Make DJ Grooves win the award", types: ["botb"] },
+ { name: "Make the Conductor win the award", types: ["botb"] },
 ];
 bingoList[20] = [
   { name: "Get the chest at Purrloined Village", types: ["alpine"] },
@@ -102,28 +101,28 @@ bingoList[20] = [
 ];
 bingoList[21] = [
   { name: "Craft Time Stop Hat", types: ["hat"] },
-  { name: "Complete 1 act from Alpine Skyline", types: ["act"] },
-  { name: "1 Rift from each Chapter", types: ["rift, tp"] },
+  { name: "Collect 15 Time Pieces", types: ["tp"] },
+  { name: "Green Screen Selfie in DBS Basement", types: ["selfie"] },
 ];
 bingoList[22] = [
-  { name: "Birdie Selfie", types: ["selfie"] },
-  { name: "Collect 20 time pieces", types: ["tp"] },
-  { name: "3 Acts from each Chapter", types: ["act, tp"] },
+ { name: "Green Screen Selfie in DBS Basement", types: ["selfie"] },
+ { name: "Get the chest at the Goat Refinery", types: ["alpine"] },
+ { name: "Selfie with a goat", types: ["selfie"] },
 ];
 bingoList[23] = [
-  { name: "All Acts in Skyline", types: ["act"] },
-  { name: "Collect 25 time pieces", types: ["tp"] },
-  { name: "Golden Girl Selfie", types: ["selfie"] },
+  {{ name: "1 Rift from each Chapter", types: ["rift, tp"] },
+  { name: "Get all the photo album pieces from Alpine Skyline Rift", types: ["rift"] },
+  { name: "Get the chest at Purrloined Village", types: ["alpine"] },
 ];
 bingoList[24] = [
-  { name: "Crybaby - Run away crying from Moustache Girl", types: ["etc"]},
-  { name: "Final Boss Fight Selfie", types: ["selfie"] },
-  { name: "Take a number in Time's End", types: ["etc"] },
+  { name: "Blow the horn in Mystifying Time Mesa", types: ["alpine"] },
+  { name: "Birdie Selfie", types: ["selfie"] },
+  { name: "Craft Time Stop Hat", types: ["hat"] },
 ];
 bingoList[25] = [
-  { name: "Collect 30 time pieces", types: ["tp"] },
-  { name: "All blue time rifts", types: ["rift"] },
-  { name: "Beat every boss", types: ["boss"] },
+  { name: "Curly Tail Trail Rift", types: ["tp"] },
+  { name: "Complete 1 act from Alpine Skyline", types: ["rift"] },
+  { name: "Selfie riding the Windmill in Alpine", types: ["alpine"] },
 ];
 
 $(function() { srl.bingo(bingoList, 5); });
