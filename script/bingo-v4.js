@@ -20,7 +20,7 @@ srl.bingo = function (bingoList, size) {
   Math.seedrandom(SEED); //sets up the RNG
   var MAX_SEED = 999999; //1 million cards
   var results = $("#results");
-  var filter = ["Action Blue", "Dreamy", "The 80s", "Vibrant", "Vintage", "Vintage 2", "Cold", "Noir", "Purple Night", "Sunset"][parseInt((''+SEED)[1])];
+  var filter = ["#NoFilter", "Action Blue", "Dreamy", "The 80s", "Vibrant", "Vintage", "Vintage 2", "Cold", "Noir", "Purple Night", "Sunset"][SEED%11]
   results.append ("<p>SRL Bingo <strong>v4</strong>&emsp;Seed: <strong>" + SEED + "</strong>&emsp;Card type: <strong>" + cardtype + "</strong>&emsp;Filter: <strong>" + filter + "</strong></p>");
 
   var lineCheckList = [];
