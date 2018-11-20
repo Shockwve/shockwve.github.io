@@ -15,7 +15,7 @@ html, body {
 
 .meterbg {
 position: relative;
-width: 100%; 
+width: 100%;
 height: 22px;
 background: #151515;
 -moz-border-radius:3px;
@@ -175,14 +175,14 @@ fieldset {
   border:2px #aaa solid;
 }
 
-#bingo tr td { 
+#bingo tr td {
   cursor:pointer;
-  width:93px;
-  height:73px;
+  width:100px;
+  height:100px;
   text-align:center;
   border:1px #666 solid;
-  background: #000; 
-  font-size: 10pt;   
+  background: #000;
+  font-size: 10pt;
 }
 #bingo tr td { background:#000; }
 #bingo tr td:hover { background:#001122; }
@@ -208,8 +208,10 @@ ol li {
 }
 
 #bingo td {
-  width:93px;
-  height:73px;
+  width:100px;
+  height:100px;
+  max-width: 100px;
+  min-width: 100px;
   text-align:center;
   border:1px #666 solid;
   background: #000;
@@ -260,7 +262,7 @@ height:500px;
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 
 .bullets {
-  list-style: square inside; 
+  list-style: square inside;
 }
 
 code {
@@ -346,7 +348,7 @@ th a:hover {color: #ffdd88; text-decoration: none; }
 #navButtons li a{
   text-shadow: #000 1px 1px 1px;
   display: block;
-  float: left; 
+  float: left;
   color:#fff;
   margin-left: 6px;
   margin-right:2px;
@@ -401,10 +403,10 @@ th a:hover {color: #ffdd88; text-decoration: none; }
   float:left;
   padding: 8px 38px 8px 40px;
   border-right: 1px solid #ae2020;
-  background: #be1f1f; 
-  background: -moz-linear-gradient(top, #E13030 0%, #9F1111 100%); 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E13030), color-stop(100%,#9F1111)); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E13030', endColorstr='#9F1111',GradientType=0 ); 
+  background: #be1f1f;
+  background: -moz-linear-gradient(top, #E13030 0%, #9F1111 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E13030), color-stop(100%,#9F1111));
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E13030', endColorstr='#9F1111',GradientType=0 );
 }
 
 #headNavigation ul li a:link {text-decoration: none; }
@@ -505,13 +507,15 @@ h1 a:hover {color: #fff; text-decoration: underline; }
 
 h2 {
   color: #e09456;
-  font-size: 16px;
+  font-size: 20px;
   font-weight:normal;
-  padding-top:20px;
-  margin-bottom:9px;
-  font-style:italic;
-  font-family:Georgia,Utopia,Palatino,'Palatino Linotype',serif;
+  padding-top:15px;
+  padding-bottom: 3px;
+  margin-bottom:2px;
+  font-family:Arial;
   word-spacing:3px;
+
+  display: inline-block;
 }
 
 h3 {
@@ -534,6 +538,7 @@ table {
 table tr td {
   background-color:#202020;
   padding-left:10px;
+  user-select: none;
 }
 
 table tr th {
@@ -550,7 +555,7 @@ table tr.alt td {
 }
 
 .rightInfo {
-  width:258px; 
+  width:258px;
   float:right;
 }
 
@@ -564,9 +569,9 @@ table tr.alt td {
   background:#1a1a1a;
   padding: 0 20px;
 }
-#gamelist_follower { 
-  position:relative; 
-  padding: 20px 0; 
+#gamelist_follower {
+  position:relative;
+  padding: 20px 0;
 }
 #gamelist_image {
 }
@@ -598,30 +603,16 @@ display:none;
   margin-left: 6px;
   margin-right:2px;
   text-decoration: none;
-  padding:5px 20px;
+  padding:7px 20px;
   text-align:center;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  border-left: 2px solid #2339a4;
-  border-right: 2px solid #1a2a88;
-  border-top: 2px solid #244ca6;
-  border-bottom: 2px solid #192686;
-  background-color: #1e3294;
-  background: -moz-linear-gradient(top, #2045c0 0%, #1e3294 100%); /* firefox */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2045c0), color-stop(100%,#1e3294)); /* webkit */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2045c0', endColorstr='#1e3294',GradientType=0 ); /* ie */
+  border:2px #aaa solid;
+  background-color: #000000;
 }
 
+
 .sortButton:hover {
-  border-left: 2px solid #0f57ff;
-  border-right: 2px solid #004af1;
-  border-bottom: 2px solid #003cef;
-  border-top: 2px solid #117aff;
-  background-color: #004efd;
-  background: -moz-linear-gradient(top, #106efd 0%, #004efd 100%); /* firefox */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#106efd), color-stop(100%,#004efd)); /* webkit */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#106efd', endColorstr='#004efd',GradientType=0 ); /* ie */
-  color:#edff29;
+  background-color:#001122;
+  color:#fff;
 }
 
 .sortButtonOff {
@@ -672,7 +663,7 @@ text-decoration:none;
 color:inherit;
 }
 
-#gameListTable tr:hover { 
+#gameListTable tr:hover {
   background: #be1f1f; /* old browsers */
   background: -moz-linear-gradient(top, #E13030 0%, #9F1111 100%); /* firefox */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E13030), color-stop(100%,#9F1111)); /* webkit */
@@ -698,7 +689,7 @@ color:inherit;
 
 #racebuttons li a{
   display: block;
-  float: left; 
+  float: left;
   color:#fff;
   margin-right: 10px;
   text-decoration: none;
@@ -722,12 +713,12 @@ color:inherit;
   background-color: #004efd;
 }
 
-#chatbox { 
-  height:300px; 
-  width:100%; 
+#chatbox {
+  height:300px;
+  width:100%;
   margin-bottom:15px;
 }
-  
+
 #chatbox .leftChat {
   width:620px;
   height:300px;
@@ -736,7 +727,7 @@ color:inherit;
   border-top: 1px #000 solid;
   border-bottom: 1px #000 solid;
 }
-  
+
 #chatbox .leftChat .leftChatFeed {
   width:100%;
   height:269px;
@@ -836,12 +827,12 @@ button {
 .club a:active {color:#fff; text-decoration: none; }
 .club a:hover {color:#fff; text-decoration: none; }
 
-.club tr:hover { 
+.club tr:hover {
   background: #be1f1f; /* old browsers */
   background: -moz-linear-gradient(top, #E13030 0%, #9F1111 100%); /* firefox */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E13030), color-stop(100%,#9F1111)); /* webkit */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E13030', endColorstr='#9F1111',GradientType=0 ); /* ie */
-  color:#ffffff; 
+  color:#ffffff;
   cursor: pointer; }
 .club tr td { background-color: inherit; }
 .club tr td:nth-child(3) { text-align:right; padding-right:10px; }
@@ -901,19 +892,19 @@ span.raceMessage:hover em{
     border-radius: 6px;
     top:2em; left:-8em; width:20em;
     border:1px solid #0f57ff;
-    background-color:#202020; 
+    background-color:#202020;
 	padding:6px;
 	color:#bec7d2;
     font-size:11px;
     font-style:italic;
     line-height:12px;
-    text-align: center; 
+    text-align: center;
 	word-wrap: break-word;
 	overflow: hidden;
 	}
 
 .roverall { margin-bottom:15px; border-left:5px #faffff solid; } .roverall tr { background-color:#252525; color:#faffff; }
-.r2200 { border-left:5px #faffff solid; } .r2200 tr { background-color: #59595b; color:#faffff; } 
+.r2200 { border-left:5px #faffff solid; } .r2200 tr { background-color: #59595b; color:#faffff; }
 .r2100 { border-left:5px #b8c5ff solid; } .r2100 tr { background-color: #532743; color:#b8c5ff; }
 .r2000 { border-left:5px #3eb9ff solid; } .r2000 tr { background-color: #1e1856; color:#3eb9ff; }
 .r1900 { border-left:5px #40d844 solid; } .r1900 tr { background-color: #091719; color:#40d844; }
@@ -937,12 +928,12 @@ span.raceMessage:hover em{
 .r100 { border-left:5px #200065 solid; } .r100 tr { background-color: #000000; color:#200065; }
 
 /* old color scheme
-.r2200 { border-left:5px #faffff solid; } .r2200 tr { background-color: #59595b; color:#faffff; } 
+.r2200 { border-left:5px #faffff solid; } .r2200 tr { background-color: #59595b; color:#faffff; }
 .r2100 { border-left:5px #8555ef solid; } .r2100 tr { background-color: #532743; color:#b8c5ff; }
 .r2000 { border-left:5px #e32727 solid; } .r2000 tr { background-color: #1e1856; color:#3eb9ff; }
 .r1900 { border-left:5px #23e3ff solid; } .r1900 tr { background-color: #091719; color:#40d844; }
 .r1800 { border-left:5px #ffd823 solid; } .r1800 tr { background-color: #1f0000; color:#ff2b2b; }
-.r1700 { border-left:5px #6c6c6c solid; } .r1700 tr { background-color: #321111; color:#FC702F; } 
+.r1700 { border-left:5px #6c6c6c solid; } .r1700 tr { background-color: #321111; color:#FC702F; }
 .r1600 { border-left:5px #d0ac3f solid; } .r1600 tr { background-color: #392018; color:#fab131; }
 .r1500 { border-left:5px #ff9783 solid; } .r1500 tr { background-color: #252525; color:#ddd440; }
 .r1400 { border-left:5px #b0827e solid; } .r1400 tr { background-color: #1f2445; color:#ff9783; }
@@ -962,7 +953,7 @@ span.raceMessage:hover em{
 */
 
 #raceFeed table tr th {
-  background-color:#652121;  
+  background-color:#652121;
   background: #930606; /* old browsers */
   background: -moz-linear-gradient(top, #b50808 0%, #640504 100%); /* firefox */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b50808), color-stop(100%,#640504)); /* webkit */
@@ -1055,7 +1046,7 @@ margin-bottom:5px;
 }
 
 #profileRaceFeed table tr th {
-  background-color:#652121;  
+  background-color:#652121;
   background: #930606; /* old browsers */
   background: -moz-linear-gradient(top, #b50808 0%, #640504 100%); /* firefox */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b50808), color-stop(100%,#640504)); /* webkit */
@@ -1083,7 +1074,7 @@ margin-bottom:5px;
 #backToTopButton {
   position:fixed;
   bottom:30px;
-  width:230px; 
+  width:230px;
   text-align:right;
   background:#1a1a1a;
   padding:3px 10px;
@@ -1106,3 +1097,7 @@ h4 {
   margin-bottom:3px;
 }
 
+.vspaced {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
