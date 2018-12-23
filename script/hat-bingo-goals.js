@@ -109,7 +109,6 @@ bingoList[22] = [
 bingoList[23] = [
   { name: "1 Rift from each Chapter", types: ["rift, tp"] },
   { name: "Get all the photo album pieces from Alpine Skyline Rift", types: ["rift"] },
-  { name: "Get the chest at Purrloined Village", types: ["alpine"] },
 ];
 bingoList[24] = [
   { name: "Blow the horn in Mystifying Time Mesa", types: ["alpine"] },
