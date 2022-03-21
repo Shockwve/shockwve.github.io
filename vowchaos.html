@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src ="js/create_chaos.js"></script>
+    </head>
+    <body>
+        <script>
+        $(document).ready(function(){
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            console.log(urlParams.get("seed"));
+            if(urlParams.has("seed")){
+                $("#seed").val(urlParams.get("seed"));
+            }
+        });
+
+        var chaos = {
+            ascendant: ["Ascendant", "Throneworld"],
+            commune: ["Commune", "Pink Flyod", "Light Show"],
+            darkness: ["Darkness", "Dark Butthole", "Nothingness", "Chocolate Starfish"],
+            drink: ["Drink", "No Thinky-Thinky, Only Drinky-Drinky", "Calus", "Chalice"],
+            earth: ["Earth", "Two Balls"],
+            enter: ["Enter", "VoG", "Atheon"],
+            fleet: ["Fleet", "Doritos", "Space Pyramids"],
+            garden: ["Garden", "Black Garden"],
+            gift: ["Ascendant", "Throneworld", "Mesa", "Utah", "Flag"],
+            grief: ["Grief", "Hole"],
+            guardian: ["Guardian", "T-Pose"],
+            heart: ["Heart", "Ink Blot"],
+            hive: ["Hive", "Eris", "3 Balls"],
+            kill: ["Kill", "Stake", "Red Circle"],
+            knowledge: ["Knowledge", "Brain", "Jimmy Neutron"],
+            light: ["Light", "Acid Trip"],
+            love: ["Love", "Clover"],
+            neutral: ["Neutral"],
+            pyramid: ["Pyramid", "Dorito", "Black Triangle"],
+            savathun: ["Savathun", "Witch Queen"],
+            scorn: ["Scorn", "Forsaken", "Fif"],
+            stop: ["Stop", "Red Square"],
+            tower: ["Tower", "Banner"],
+            traveler: ["Traveler", "White Circle"],
+            witness: ["Witness", "Judge Judy"],
+            worm: ["Worm", "S"],
+            worship:  ["Worship", "Praise"]
+        };
+
+        function create_chaos(){
+
+            var symbols = document.getElementsByTagName("img");
+            for (let symbol of symbols){
+                var s_id = symbol.id; 
+                var options = chaos[s_id].length;
+                var number = Math.floor(Math.random() * options);
+                var callout = chaos[s_id][number];
+                document.getElementById(s_id + "_callout").innerHTML = callout;
+            }
+        }
+        </script>
+
+        <h1>VOW OF THE DISCIPLE - CHAOS CALLOUTS</h1> 
+        <p>Seed:</p>
+        <input type="text" id="seed"></input>
+
+        <button onclick="create_chaos()">CREATE CHAOS</button>
+
+        <table>
+            <tr>
+                <td>
+                    <img id="ascendant" src="img/ascendant.png">
+                    <h3 id="ascendant_callout"></h3>
+                </td>
+                <td>
+                    <img id="commune" src="img/commune.png">
+                    <h3 id="commune_callout"></h3>
+                </td>
+                <td>
+                    <img id="darkness" src="img/darkness.png">
+                    <h3 id="darkness_callout"></h3>
+                </td>
+                <td>
+                    <img id="drink" src="img/drink.png">
+                    <h3 id="drink_callout"></h3>
+                </td>
+                <td>
+                    <img id="earth" src="img/earth.png">
+                    <h3 id="earth_callout"></h3>
+                </td>
+                <td>
+                    <img id="enter" src="img/enter.png">
+                    <h3 id="enter_callout"></h3>
+                </td>
+                <td>
+                    <img id="fleet" src="img/fleet.png">
+                    <h3 id="fleet_callout"></h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="garden" src="img/garden.png">
+                    <h3 id="garden_callout"></h3>
+                </td>
+                <td>
+                    <img id="gift" src="img/gift.png">
+                    <h3 id="gift_callout"></h3>
+                </td>
+                <td>
+                    <img id="grief" src="img/grief.png">
+                    <h3 id="grief_callout"></h3>
+                </td>
+                <td>
+                    <img id="guardian" src="img/guardian.png">
+                    <h3 id="guardian_callout"></h3>
+                </td>
+                <td>
+                    <img id="heart" src="img/heart.png">
+                    <h3 id="heart_callout"></h3>
+                </td>
+                <td>
+                    <img id="hive" src="img/hive.png">
+                    <h3 id="hive_callout"></h3>
+                </td>
+                <td>
+                    <img id="kill" src="img/kill.png">
+                    <h3 id="kill_callout"></h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="knowledge" src="img/knowledge.png">
+                    <h3 id="knowledge_callout"></h3>
+                </td>
+                <td>
+                    <img id="light" src="img/light.png">
+                    <h3 id="light_callout"></h3>
+                </td>
+                <td>
+                    <img id="love" src="img/love.png">
+                    <h3 id="love_callout"></h3>
+                </td>
+                <td>
+                    <img id="neutral" src="img/neutral.png">
+                    <h3 id="neutral_callout"></h3>
+                </td>
+                <td>
+                    <img id="pyramid" src="img/pyramid.png">
+                    <h3 id="pyramid_callout"></h3>
+                </td>
+                <td>
+                    <img id="savathun" src="img/savathun.png">
+                    <h3 id="savathun_callout"></h3>
+                </td>
+                <td>
+                    <img id="scorn" src="img/scorn.png">
+                    <h3 id="scorn_callout"></h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="stop" src="img/stop.png">
+                    <h3 id="stop_callout"></h3>
+                </td>
+                <td>
+                    <img id="tower" src="img/tower.png">
+                    <h3 id="tower_callout"></h3>
+                </td>
+                <td>
+                    <img id="traveler" src="img/traveler.png">
+                    <h3 id="traveler_callout"></h3>
+                </td>
+                <td>
+                </td>
+                <td>
+                    <img id="witness" src="img/witness.png">
+                    <h3 id="witness_callout"></h3>
+                </td>
+                <td>
+                    <img id="worm" src="img/worm.png">
+                    <h3 id="worm_callout"></h3>
+                </td>
+                <td>
+                    <img id="worship" src="img/worship.png">
+                    <h3 id="worship_callout"></h3>
+                </td>
+            </tr>
+        </table>
+        
+    </body>
+</html>
