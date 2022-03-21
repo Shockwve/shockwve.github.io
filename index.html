@@ -14,7 +14,7 @@
 
     function NewCard() {
       var num = (Math.floor(Math.random() * 999999) + 1);
-        window.location = "?seed=" + num;
+        window.location = "?seed=" + num + "&mode=normal";
     }
     function NewShortCard() {
       var num = (Math.floor(Math.random() * 999999) + 1);
@@ -24,9 +24,14 @@
       var num = (Math.floor(Math.random() * 999999) + 1);
         window.location = "?seed=" + num + "&mode=long";
     }
+
+    function NewDWCard() {
+      var num = (Math.floor(Math.random() * 999999) + 1);
+        window.location = "?seed=" + num + "&mode=deathwish";
+    }
 </script>
 </head>
-<body>
+<body id="body">
     <div id="wrapper">
         <div id="user">
             <span class="note2">
@@ -35,45 +40,70 @@
         </div>
         <script src="script/seedrandom-min.js" type="text/javascript"></script>
         <script src="script/bingo-v4.js" type="text/javascript"></script>
-        <script src="script/hat-bingo-goals.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var mode = url.searchParams.get("mode");
+
+            switch(mode)
+            {
+                case "deathwish":
+                    var s = document.createElement("script");
+                        s.type = "text/javascript";
+                        s.src = "script/hat-bingo-dw-goals.js";
+                        s.innerHTML = null;
+                        s.id = "widget";
+                        document.getElementById("body").appendChild(s);
+                break;
+                default:
+                    var s = document.createElement("script");
+                        s.type = "text/javascript";
+                        s.src = "script/hat-bingo-goals.js";
+                        s.innerHTML = null;
+                        s.id = "widget";
+                        document.getElementById("body").appendChild(s);
+                break;
+            }
+        </script>
         <div id="about_bingo">
             <h2>
-                Generate a new card</h2>
+                Generate A New Card</h2>
             <p>
             <p style="margin-top: 20px;" id="sortButtons">
                 <a class="sortButton" href="javascript:NewCard();">New card</a>
                 <a class="sortButton" href="javascript:NewShortCard();">Short card</a>
                 <a class="sortButton" href="javascript:NewLongCard();">Long card</a></p>
+                <!--<a id ="dwbutton" class="sortButton" href="javascript:NewDWCard();">Deathwish card</a></p> -->
             </p>
             <h2 style="margin-top: 10px; padding-top: 0px">
                 About This Bingo Card</h2>
-            <p>
+            <p class="vspaced">
                 The seed number is used to generate the board. Changing the seed will make a new
                 board.</p>
             <hr></hr>
                 <p>
                     Selfies explanation below:</p>
                 <ul>
-                    <li>Rumbi Selfie - Selfie with Rumbi</li>
-                    <li>Storytime Selfie - Selfie with Snatcher in his chair while he's reading his book</li>
-                    <li>Beach Selfie - Selfie with the Mafia sitting on the beach</li>
-                    <li>Juice Bar? Selfie - Selfie in front of Juice Bar?</li>
-                    <li>Parade Selfie - Selfie while Hat Kid is in her parade outfit</li>
-                    <li>Vanessa Selfie - Selfie while Vanessa is chasing you in her mansion</li>
-                    <li>Windmill Selfie - Selife whilie riding the windmill in Alpine</li>
-                    <li>Green Screen Selfie - Selfie in front of the green screen in Dead Bird Studio Basement</li>
-                    <li>Goat Selfie - Selfie with an Alpine Skyline goat</li>
-                    <li>Birdie Selfie - Selfie with the sleeping bird in the birdhouse in Alpine Skyline</li>
+                    <li class="vspaced">Rumbi Selfie - Selfie with Rumbi</li>
+                    <li class="vspaced">Storytime Selfie - Selfie with Snatcher in his chair while he's reading his book</li>
+                    <li class="vspaced">Beach Selfie - Selfie with the Mafia sitting on the beach</li>
+                    <li class="vspaced">Juice Bar? Selfie - Selfie in front of Juice Bar?</li>
+                    <li class="vspaced">Parade Selfie - Selfie while Hat Kid is in her parade outfit</li>
+                    <li class="vspaced">Vanessa Selfie - Selfie while Vanessa is chasing you in her mansion</li>
+                    <li class="vspaced">Windmill Selfie - Selife whilie riding the windmill in Alpine</li>
+                    <li class="vspaced">Green Screen Selfie - Selfie in front of the green screen in Dead Bird Studio Basement</li>
+                    <li class="vspaced">Goat Selfie - Selfie with an Alpine Skyline goat</li>
+                    <li class="vspaced">Birdie Selfie - Selfie with the sleeping bird in the birdhouse in Alpine Skyline</li>
                 </ul>
             <hr></hr>
             <p>
                 <span class="note2">Based on SRL Bingo v4 by Cosmo.</span>
                 <ul>
                     <li class="note2">Credits:</li>
-                    <li class="note2">Shockwve - Initial board goal layout, hosting the board</li>
-                    <li class="note2">Fivves - Initial goal list</li>
-                    <li class="note2">sonicyellow/Polsaar - Helped time inital set of goals</li>
-                    <li class="note2">querty - Added the Filter for the Instant Camera</li>
+                    <li class="note2"><a href="https://github.com/Shockwve">Shockwve</a> - Initial board goal layout, hosting the board</li>
+                    <li class="note2"><a href="https://www.twitch.tv/fivves">Fivves</a> - Initial goal list</li>
+                    <li class="note2"><a href="https://www.twitch.tv/sonicyellow5">sonicyellow</a> / <a href="https://www.twitch.tv/polsaar">Polsaar</a> - Helped time inital set of goals</li>
+                    <li class="note2"><a href="https://github.com/qwertyquerty">qwertyquerty</a> - Added the Filter for the Instant Camera, restyled</li>
                 </ul>
             </p>
 
