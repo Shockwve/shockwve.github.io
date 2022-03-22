@@ -22,13 +22,17 @@
     <script>
         $(document).ready(function () {
             const urlParams = new URLSearchParams(window.location.search);
+
             var seed;
             if (urlParams.has("seed")) {
                 seed = urlParams.get("seed");
                 $("#seed").val(seed);
+                
+                seed_rng(seed);   
             }
-
+            
             create_chaos();
+            
         });
 
         var chaos = {
@@ -53,11 +57,11 @@
             pyramid: ["Pyramid", "Dorito", "Black Triangle", "Dorito", "Mars"],
             savathun: ["Savathun", "Witch Queen", "Mommy", "Logo", "Lucent"],
             scorn: ["Scorn", "Forsaken", "Fif", "F", "Fanatic", "Fork", "Crazy Eye", "Double F"],
-            stop: ["Stop", "Red Square", "Meat Boy", "Cube", "Brick", "Lego Brick"],
+            stop: ["Stop", "Red Square", "Meat Boy", "Cube", "Brick", "Lego Brick", "Subscribe"],
             tower: ["Tower", "Banner", "D1 Tower", "Rally", "Tour", "Sword", "TNT", "Anvil", "Shield", "Last City", "Cross", "Plunger"],
             traveler: ["Traveler", "White Circle", "1 Ball", "Circle", "Light Side", "Voyageur", "Pearl", "Golf Ball", "Plate", "Orb"],
-            witness: ["Witness", "Judge Judy", "Megamind", "Disciple", "Balance", "Staff", "Priest", "Watcher", "Scepter", "Entity", "Guy holding stuff", "Meditate", "Holding", "Wisdom", "Gandalf", ],
-            worm: ["Worm", "S", "Snake", "Dragon", "Squiggly", "Xol", "Hook", "Gambit", "Jigsaw", "Fish", "Serpent", "Yin Yang"],
+            witness: ["Witness", "This is My Stuff", "Judge Judy", "Megamind", "Disciple", "Balance", "Staff", "Priest", "Watcher", "Scepter", "Entity", "Guy holding stuff", "Meditate", "Holding", "Wisdom", "Gandalf", ],
+            worm: ["Worm", "S", "Snake", "Dragon", "Squiggly", "Xol", "Hook", "Gambit", "Jigsaw", "Fish", "Serpent", "Ying Yang"],
             worship: ["Worship", "Praise", "Dark Souls", "Praise the Sun", "Shadow", "Prophet", "Hug", "Orange Person", "Preacher", "Two People", "Arms Up", "Family", "Twins", "YMCA", "Two Dudes", "Salvation"]
         };
 
@@ -67,22 +71,36 @@
             var newURL = window.location.pathname;
             if(seed.length > 0){
                 newURL = newURL + "?seed=" + $("#seed").val();
-            }
+            } 
+
+            seed_rng(seed);
+
             window.location = newURL; 
         }
 
-        function create_chaos() {
-
-            var seed = $("#seed").val();
+        function seed_rng(seed){
 
             var parsed = parseInt(seed, 10);
             parsed = isNaN(parsed) ? 0 : parsed; 
 
-            if(parsed != 0){
+            if(parsed !== 0){
                 Math.seedrandom(parsed);
             } else {
                 Math.seedrandom(Math.random());
             }
+        }
+
+        function create_chaos() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            var seed;
+            var random;
+            if (urlParams.has("seed")) {
+                seed = urlParams.get("seed");
+                $("#seed").val(seed);
+            }
+
+            
 
             var symbols = document.getElementsByTagName("img");
             for (let symbol of symbols) {
