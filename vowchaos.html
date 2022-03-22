@@ -37,7 +37,7 @@
             darkness: ["Toaster Strudel", "Darkness", "Dark Butthole", "Nothingness", "Chocolate Starfish", "Void", "Eclipse", "Turbine", "Bones", "Pinwheel"],
             drink: ["Drink", "No Thinky-Thinky, Only Drinky-Drinky", "Calus", "Chalice", "Cuphead", "Water", "Megamind", "Fountain", "Juggler", "Mind Blown", "Opulence", "Thirsty", "Shower", "Wellspring", "Shrug"],
             earth: ["Earth", "Two Balls", "Planet", "Globe", "Terra", "Humanity", "Pangea"],
-            enter: ["Enter", "VoG", "Atheon", "Teardrop", "Blood", "Ice Cream", "A", "Assassin's Creed", "Droplet", "Pants", "Spotlight", "Spike", "Gnome", "Temple"],
+            enter: ["Enter", "Vault of Glass", "Atheon", "Teardrop", "Blood", "Ice Cream", "A", "Assassin's Creed", "Droplet", "Pants", "Spotlight", "Spike", "Gnome", "Temple"],
             fleet: ["Fleet", "Doritos", "Space Pyramids", "Ships", "Arrivals", "Invasion", "Armada", "Cookie", "Nachos", "Pumpkin", "The Boys", "Spooky Bois", "Cheese", ],
             garden: ["Garden", "Black Garden", "Mesa", "Utah", "Flag", "Plateau", "Bulgaria", "Uluru", "Arizona", "Garden of Salvation"],
             gift: ["Gift", "Claws", "Jazz Hands", "Red Hands", "Hands", "Owl", "Crying", "Two Hands", "Ghast", "Hands Down", "Bird", "Clown", "Chicken", "PepeHands"],
@@ -99,245 +99,247 @@
         <h1 class="page_title">Vow of the Disciple - Chaos Edition</h1>
     </div>
 
-    <div>
-        <input type="text" id="seed"></input>
-        <label for="seed" class="seed_label">Seed</label>
+    <div class="container-fluid">
+        <div>
+            <input type="text" id="seed"></input>
+            <label for="seed" class="seed_label">Seed</label>
+        </div>
+
+        <br />
+        <button onclick="get_new_callouts()">CREATE CHAOS</button>
+
+        <br />
+        <br />
+
+        <table class="table ">
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="ascendant" src="img/ascendant.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="ascendant_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="commune" src="img/commune.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="commune_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="darkness" src="img/darkness.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="darkness_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="drink" src="img/drink.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="drink_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="earth" src="img/earth.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="earth_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="enter" src="img/enter.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="enter_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="fleet" src="img/fleet.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="fleet_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="garden" src="img/garden.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="garden_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="gift" src="img/gift.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="gift_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="grief" src="img/grief.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="grief_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="guardian" src="img/guardian.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="guardian_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="heart" src="img/heart.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="heart_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="hive" src="img/hive.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="hive_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="kill" src="img/kill.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="kill_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="knowledge" src="img/knowledge.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="knowledge_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="light" src="img/light.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="light_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="love" src="img/love.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="love_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="neutral" src="img/neutral.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="neutral_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="pyramid" src="img/pyramid.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="pyramid_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="savathun" src="img/savathun.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="savathun_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="scorn" src="img/scorn.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="scorn_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="stop" src="img/stop.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="stop_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="tower" src="img/tower.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="tower_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="traveler" src="img/traveler.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="traveler_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="witness" src="img/witness.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="witness_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="worm" src="img/worm.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="worm_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="worship" src="img/worship.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="worship_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
-
-    <br />
-    <button onclick="get_new_callouts()">CREATE CHAOS</button>
-
-    <br />
-    <br />
-
-    <table class="table ">
-        <tr>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="ascendant" src="img/ascendant.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="ascendant_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="commune" src="img/commune.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="commune_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="darkness" src="img/darkness.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="darkness_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="drink" src="img/drink.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="drink_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="earth" src="img/earth.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="earth_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="enter" src="img/enter.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="enter_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="fleet" src="img/fleet.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="fleet_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="garden" src="img/garden.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="garden_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="gift" src="img/gift.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="gift_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="grief" src="img/grief.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="grief_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="guardian" src="img/guardian.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="guardian_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="heart" src="img/heart.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="heart_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="hive" src="img/hive.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="hive_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="kill" src="img/kill.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="kill_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="knowledge" src="img/knowledge.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="knowledge_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="light" src="img/light.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="light_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="love" src="img/love.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="love_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="neutral" src="img/neutral.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="neutral_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="pyramid" src="img/pyramid.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="pyramid_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="savathun" src="img/savathun.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="savathun_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="scorn" src="img/scorn.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="scorn_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="stop" src="img/stop.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="stop_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="tower" src="img/tower.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="tower_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="traveler" src="img/traveler.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="traveler_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="witness" src="img/witness.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="witness_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="worm" src="img/worm.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="worm_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-            <td>
-                <div class="d-flex justify-content-center">
-                    <img id="worship" src="img/worship.png">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h3 id="worship_callout" class="symbol_label"></h3>
-                </div>
-            </td>
-        </tr>
-    </table>
 
 </body>
 
