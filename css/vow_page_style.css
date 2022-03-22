@@ -1,0 +1,56 @@
+@font-face{
+    font-family: "lemonmilk";
+    src: url("../fonts/LEMONMILK-Regular.otf");
+}
+
+@font-face{
+    font-family: "lemonmilk-light";
+    src: url("../fonts/LEMONMILK-Light.otf");
+}
+
+html{
+    background-color: black;
+}
+
+table{
+    background: #222222;
+}
+
+.page_title {
+    font-family: 'lemonmilk';
+    color:#ffffff;
+}
+
+.seed_label{
+    font-family: 'lemonmilk-light';
+    color:#ffffff;
+}
+
+h3{
+    color: #ffffff;
+}
+
+tr{
+    width:100% 
+ }
+ 
+ td{
+     padding: 10px;
+     border-style: solid;
+     border-width: 1px;
+     width: 200px;
+     height: 100px;
+ }
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+.inline{
+    display: inline;
+}
+
+.symbol_label{
+    color:#ffffff;
+}

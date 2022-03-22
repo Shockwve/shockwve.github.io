@@ -1,19 +1,61 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src ="js/create_chaos.js"></script>
-    </head>
-    <body>
-        <script>
-        $(document).ready(function(){
-            
+<head>
+    <link rel="stylesheet" type="text/css" href="css/vow_page_style.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://davidbau.com/encode/seedrandom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src=
+        "https://html2canvas.hertzen.com/dist/html2canvas.min.js">
+        </script>
+
+</head>
+
+<body style="background-color:black;">
+    <script>
+        $(document).ready(function () {
             const urlParams = new URLSearchParams(window.location.search);
-            console.log(urlParams.get("seed"));
-            if(urlParams.has("seed")){
-                $("#seed").val(urlParams.get("seed"));
+            var seed;
+            if (urlParams.has("seed")) {
+                seed = urlParams.get("seed");
+                $("#seed").val(seed);
             }
+
+            // Global variable
+            var element = $("#html-content-holder");
+            var getCanvas; // Global variable
+  
+            $("#btn-Preview-Image").on('click', function () {
+                html2canvas(element, {
+                    onrendered: function (canvas) {
+                        $("#previewImage").append(canvas);
+                        getCanvas = canvas;
+                    }
+                });
+            });
+  
+            $("#btn-Convert-Html2Image").
+                        on('click', function () {
+                var imgageData = getCanvas.toDataURL("image/png");
+  
+                // Now browser starts downloading it 
+                // instead of just showing it
+                var newData = imgageData.replace(
+                    /^data:image\/png/, 
+                    "data:application/octet-stream");
+  
+                $("#btn-Convert-Html2Image")
+                    .attr("download", "gfg.png")
+                    .attr("href", newData);
+            });
         });
 
         var chaos = {
@@ -43,148 +85,283 @@
             traveler: ["Traveler", "White Circle"],
             witness: ["Witness", "Judge Judy"],
             worm: ["Worm", "S"],
-            worship:  ["Worship", "Praise"]
+            worship: ["Worship", "Praise"]
         };
 
-        function create_chaos(){
+        function create_chaos() {
+
+            var seed = $("#seed").val();
+
+            if(seed.length > 0){
+                Math.seedrandom(seed);
+            } else {
+                Math.seedrandom(Math.random() + seed);
+            }
 
             var symbols = document.getElementsByTagName("img");
-            for (let symbol of symbols){
-                var s_id = symbol.id; 
+            for (let symbol of symbols) {
+                var s_id = symbol.id;
                 var options = chaos[s_id].length;
                 var number = Math.floor(Math.random() * options);
                 var callout = chaos[s_id][number];
                 document.getElementById(s_id + "_callout").innerHTML = callout;
             }
         }
-        </script>
+    </script>
 
-        <h1>VOW OF THE DISCIPLE - CHAOS CALLOUTS</h1> 
-        <p>Seed:</p>
+    <div class="d-flex justify-content-center">
+        <h1 class="page_title">Vow of the Disciple - Chaos Edition</h1>
+    </div>
+
+    <div>
         <input type="text" id="seed"></input>
+        <label for="seed" class="seed_label">Seed</label>
+    </div>
 
-        <button onclick="create_chaos()">CREATE CHAOS</button>
+    <br />
+    <button onclick="create_chaos()">CREATE CHAOS</button>
 
-        <table>
+    <br />
+    <br />
+
+    <div id="html-content-holder">
+        <input id="btn-Preview-Image" 
+        type="button" value="Preview" />
+  
+        <a id="btn-Convert-Html2Image" href="#">
+            Download
+        </a>
+        <table class="table ">
             <tr>
                 <td>
-                    <img id="ascendant" src="img/ascendant.png">
-                    <h3 id="ascendant_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="ascendant" src="img/ascendant.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="ascendant_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="commune" src="img/commune.png">
-                    <h3 id="commune_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="commune" src="img/commune.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="commune_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="darkness" src="img/darkness.png">
-                    <h3 id="darkness_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="darkness" src="img/darkness.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="darkness_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="drink" src="img/drink.png">
-                    <h3 id="drink_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="drink" src="img/drink.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="drink_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="earth" src="img/earth.png">
-                    <h3 id="earth_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="earth" src="img/earth.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="earth_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="enter" src="img/enter.png">
-                    <h3 id="enter_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="enter" src="img/enter.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="enter_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="fleet" src="img/fleet.png">
-                    <h3 id="fleet_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="fleet" src="img/fleet.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="fleet_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <img id="garden" src="img/garden.png">
-                    <h3 id="garden_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="garden" src="img/garden.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="garden_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="gift" src="img/gift.png">
-                    <h3 id="gift_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="gift" src="img/gift.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="gift_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="grief" src="img/grief.png">
-                    <h3 id="grief_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="grief" src="img/grief.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="grief_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="guardian" src="img/guardian.png">
-                    <h3 id="guardian_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="guardian" src="img/guardian.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="guardian_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="heart" src="img/heart.png">
-                    <h3 id="heart_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="heart" src="img/heart.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="heart_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="hive" src="img/hive.png">
-                    <h3 id="hive_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="hive" src="img/hive.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="hive_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="kill" src="img/kill.png">
-                    <h3 id="kill_callout"></h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img id="knowledge" src="img/knowledge.png">
-                    <h3 id="knowledge_callout"></h3>
-                </td>
-                <td>
-                    <img id="light" src="img/light.png">
-                    <h3 id="light_callout"></h3>
-                </td>
-                <td>
-                    <img id="love" src="img/love.png">
-                    <h3 id="love_callout"></h3>
-                </td>
-                <td>
-                    <img id="neutral" src="img/neutral.png">
-                    <h3 id="neutral_callout"></h3>
-                </td>
-                <td>
-                    <img id="pyramid" src="img/pyramid.png">
-                    <h3 id="pyramid_callout"></h3>
-                </td>
-                <td>
-                    <img id="savathun" src="img/savathun.png">
-                    <h3 id="savathun_callout"></h3>
-                </td>
-                <td>
-                    <img id="scorn" src="img/scorn.png">
-                    <h3 id="scorn_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="kill" src="img/kill.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="kill_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <img id="stop" src="img/stop.png">
-                    <h3 id="stop_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="knowledge" src="img/knowledge.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="knowledge_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="tower" src="img/tower.png">
-                    <h3 id="tower_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="light" src="img/light.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="light_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="traveler" src="img/traveler.png">
-                    <h3 id="traveler_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="love" src="img/love.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="love_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="neutral" src="img/neutral.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="neutral_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="pyramid" src="img/pyramid.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="pyramid_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="savathun" src="img/savathun.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="savathun_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="scorn" src="img/scorn.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="scorn_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="stop" src="img/stop.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="stop_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="tower" src="img/tower.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="tower_callout" class="symbol_label"></h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img id="traveler" src="img/traveler.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="traveler_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
                 </td>
                 <td>
-                    <img id="witness" src="img/witness.png">
-                    <h3 id="witness_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="witness" src="img/witness.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="witness_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="worm" src="img/worm.png">
-                    <h3 id="worm_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="worm" src="img/worm.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="worm_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
                 <td>
-                    <img id="worship" src="img/worship.png">
-                    <h3 id="worship_callout"></h3>
+                    <div class="d-flex justify-content-center">
+                        <img id="worship" src="img/worship.png">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <h3 id="worship_callout" class="symbol_label"></h3>
+                    </div>
                 </td>
             </tr>
         </table>
-        
-    </body>
+    </div>
+    <div id="previewImage"></div>
+
+</body>
+
 </html>
